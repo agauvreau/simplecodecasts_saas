@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   resources :users do
     resource :profile
   end
-  
   resources :contacts
   get '/about' => 'pages#about'
   root 'pages#home'
+
+
 
   
   # The priority is based upon order of creation: first created -> highest priority.
