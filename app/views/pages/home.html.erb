@@ -5,10 +5,11 @@
     <h3>A membership site where entrepreneurs can meet developers.</h3>
 </div>
 <div class="row">
+    <% if user_signed_in? %>
     <div class="col-md-6">
         <div class="well">
             <h2 class="text-center">Your Profile</h2>
-            <% if user_signed_in? %>
+           
                 <% if current_user.profile %>
                     <%= link_to "Edit your profile", edit_user_profile_path(current_user), class: 'btn btn-default btn-lg btn-block' %>
                     <%= link_to "View your profile", user_path(current_user), class: 'btn btn-default btn-lg btn-block' %>
@@ -21,9 +22,9 @@
     </div>
      <div class="col-md-6">
           <div class="well">
-              <h2 class="text-center">The community</h2>
+              <h2 class="text-center">The Community</h2>
               <p>Visit the community to meet other developers, entrepreneurs, and investors!</p>
-              <%= link_to "Visit the community", "#", class: 'btn btn-default btn-lg btn-block' %>
+              <%= link_to "Visit the community", users_path, class: 'btn btn-default btn-lg btn-block' %>
           </div>
     </div>
      <% else %>
@@ -41,7 +42,6 @@
                 <h4>Sign up for the pro account for $10/month and get access to the community and contact information</h4>
                 <%= link_to "Sign up Pro", new_user_registration_path(plan: @pro_plan.id), class: 'btn btn-success btn-lg btn-block' %>
             </div>
-        
-    </div>
+        </div>
     <%end%>
 </div>
